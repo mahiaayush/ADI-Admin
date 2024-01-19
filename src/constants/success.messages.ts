@@ -1,0 +1,266 @@
+export const SUCCESS = Object.freeze({
+  APP: {
+    SERVICE_STATUS: 'The Service Is Up And Runnig.',
+    OK: 'Success.',
+    CREATED: 'The Entity Created Successfully.',
+    UPDATED: 'The Entity Updated Successfully.',
+    DELETED: 'The Entity Deleted Successfully.'
+  },
+  SYSTEM: {
+    APIS_LIST: 'APIs List Fetched Successfully.',
+    ROLE: {
+      CREATED: 'The Role Created Successfully.',
+      UPDATED: 'The Role Updated Successfully.',
+      DELETED: 'The Role Deleted Successfully.',
+      ALLOCATED: 'The Role has been Allocated Successfully.',
+      APIS_LIST: 'Allocated APIs List Fetched Successfully.'
+    },
+    API: {
+      CREATED: 'The Api Create Successfully.',
+      UPDATED: 'The Api Updated Successfully.',
+      DELETED: 'The Api Deleted Successfully.',
+      ALLOCATED: 'geting List of Allocated APIs Successfully.'
+    }
+  },
+  ENTITY: {
+    LIST: 'Entity List Fetched Successfully.',
+    DETAIL: 'Entity Detail Fetched Successfully.',
+    VERIFY: 'Entity Verified Successfully.',
+    FILTER_FETCHED: 'Entity List Filters Fetched Successfully.',
+    ENTITY_PACKAGE: 'Succesfully Fetched Entity Package Data',
+    ENTITY_ITEM_MAP: 'Successfully Mapped Items And Entities',
+    ENTITYPACKAGE: 'Successfully Updated Entity Package Details',
+    ENTITYANALYTICS: 'Successfully Updated Entity Analytics Status'
+  },
+  LEARNINGHUB: {
+    COURSELIST: 'Succesfully Fetched Course List.'
+  },
+  GLOBAL: {
+    VALID_CARD: 'Your Card Is Valid.',
+    UPLOAD: 'Deposit Slip Uploaded Successfully.',
+    FETCH_ATTACHMENT: 'Successfully Fetched Deposit Slip Link.',
+    ITEM_CREATION: 'Zoho List-Item Created Successfully',
+    TAX_ITEM_LIST: 'Zoho Tax-List Fetched Successfully',
+    GETOVERRIDE: 'Successfully Fetched Override Data',
+    CREATEOVERRIDE: 'Successfully Created Override Data',
+    DELETEOVERRIDE: 'Successfully Deleted Override Data',
+    GLOBALWORKINGHOURS: 'Successfully Fetched Global Working Hours',
+    CS_MEMBERSHIP: 'Successfully Generated Card.',
+    MEMBERSHIP: 'Successfully Fetched Membership Card.',
+    UPDATE_MEMBERSHIP: 'Successfully Updated Membership Card Status.',
+    MASTER_REGION: 'Successfully Added New Region',
+    MASTER_REGION_GET: 'Successfully Fetched Region Data',
+    MASTER_REGION_DELETE: 'Successfully Deleted Region',
+    MASTER_REGION_UPDATE: 'Successfully Updated Region',
+    MASTER_STATE_UPDATE: 'Successfully Updated State',
+    MASTER_CITY: 'Successfully Added New City',
+    MASTER_CITY_GET: 'Successfully Fetched City Data',
+    MASTER_CITY_DELETE: 'Successfully Deleted City',
+    MASTER_STATE_DELETE: 'Successfully Deleted State',
+    MASTER_CITY_UPDATE: 'Successfully Updated City',
+    MASTER_VPA: 'Successfully Created Vpa',
+    MASTER_VPA_GET: 'Successfully Fetched Vpa Data',
+    MASTER_VPA_DELETE: 'Successfully Deleted Vpa',
+    MASTER_VPA_UPDATE: 'Successfully Updated Vpa',
+    MASTER_COUPON: 'Successfully Created New Coupon',
+    MASTER_COUPON_GET: 'Successfully Fetched Coupon Data',
+    MASTER_COUPON_DELETE: 'Successfully Deleted Coupon',
+    MASTER_COUPON_UPDATE: 'Successfully Updated Coupon',
+    MASTER_STATE: 'Successfully Added New State',
+    MASTER_STATE_GET: 'Successfully Fetched State Data',
+    INVENTORY_LIST: 'Successfully Fetched All Card List.',
+    INVENTORY_DETAILS: 'Successfully Fetched Card Details.',
+    USER_VPA_LIST: 'Successfully Fetched User Vpa List.',
+    SALES_DASHBOARD: 'Successfully Fetched Dashboard Stats.',
+    USER_CARD_PT_OFFERING_STATUS:
+      'Successfully Fetched User Card Info And Platform Offering Types.',
+    OFFERING_TYPE: 'Successfully Fetched Platform Offering Details.',
+    COUPON_MAPPED: 'Successfully Mapped Coupon To Region',
+    MASTER_SELLER_GET: 'Successfully Fetched Seller Data',
+    MASTER_SELLER_META_GET: 'Successfully Fetched Seller Meta Data',
+    MASTER_SELLER_META_ADD: 'Successfully Added Seller Meta Data',
+    MASTER_SELLER_META_UPDATE: 'Successfully Updated Seller Meta Data',
+    INVENTORY_ACTION: 'Successfully Updated Inventory Details',
+    CARDLOT_ALLOCATION_GET: 'Successfully Fetched All Card Lots.',
+    SELLER_CARD_ALLOCATION: 'Successfully Allocated Cards to Seller',
+    TRANSACTION_STATUS_UPDATE: 'Successfully Updated Transaction Status',
+    TRANSACTION_DATA_GET: 'Successfully Fetched Transaction Data'
+  },
+  USERS: {
+    SESSION_LIST: 'Succesfully Fetched Users Session List',
+    USERTYPE: 'User Type Fetched Successfully',
+    GLOBAL_SIGN_OUT: 'User Successfully Signed Out Globally.',
+    LIST: 'User List Fetched Successfully.',
+    DETAIL: 'User Detail Fetched Successfully.',
+    ENABLE: 'User Enabled Successfully.',
+    DISABLE: 'User Deleted Successfully.',
+    MFA: 'Mfa Is Applied Successfully.',
+    RESET_PASSWORD: 'User Password Reset Successfully.',
+    CREATE: 'User Created Successfully.',
+    UPDATE: 'User Upated Successfully.',
+    UNLINK_ENTITY: 'Successfully Unlinked Entity.',
+    LINK_ENTITY: 'Successfully Linked Entity.',
+    LIST_ENTITY: 'Successfully Listed Entity.',
+    EVENT_LIST: 'User Auth Event List Fetched Successfully.',
+    LMC_JOURNEY: 'All Details Are Successfully Fetched.',
+    FETCHINGLIST: 'List Has Fetched Successfully',
+    TEST_LIST: 'Successfully Fetch All Test List.',
+    INVITE_CANDIDATE: 'Successfully Invite Candidate.',
+    TEST_REPORT: 'Successfully Got Test Report.',
+    FEEDBACK: 'Successfully Fetched Feedback Details.',
+    ASSIGN_COUNSELOR: 'Successfully Assigned Counselor.',
+    ACTIVE_USERS: 'Successfully Fetched All Active Users',
+    INACTIVE_USERS: 'Successfully Fetched All Inactive Users',
+    USER_ROLES: 'Successfully Fetched User Roles',
+    USER_ROLES_UPDATE: 'Successfully Updated User Role',
+    ASSIGNED_CSMP: 'Csmp Assigned Successfully.',
+    ASSIGNED_CARD_PLAN: 'Successfully Assigned Card With Plan To User.',
+    OTP_SENT: 'Code has been sent successfully.'
+  },
+  COUNSELOR: {
+    CSP: 'Successfully Fetched Csp Details.',
+    ALL_ACTION_PLAN:
+      'Successfullt Fetch All Action Plan Belong To This Learner.',
+    NOT_VALIDE_COUNSELOR:
+      'This User Is Not A Valid Plz Use Valid Applicationid.',
+    PRIZING: 'Sucessfully Got Prizing List.',
+    COUNSELOR_ITEM: 'Successfully Saved Counselor Pricing Details.',
+    INTERVIEW_SCHEDULLED: 'Counsellor Interview Schedulled Sucessfully',
+    MOCK_SCHEDULLED: 'Counsellor Mock Session Schedulled Sucessfully',
+    CHANGE_SUCESS: 'Counsellor Status Has Been Changed Sucessfully.',
+    NO_SESSION:
+      'There Is No Session Against This Counselor, Sucessfully Update Counselor Status.',
+    WITH_SESSION:
+      'All Session Against This Counselor Cancelled By Admin,  Sucessfully Update Counselor Status.',
+    REASONS: 'Reasons Has Been Fetched Successfully',
+    UPDATE: 'The Counsellor Updated Successfully.',
+    STATUSDATA: 'Successfully Got All Counsellors Status Data.',
+    APPROVED_COUNSELOR_DATA: 'Successfully Got All Approved Counsellors Data.',
+    LISTING: 'Successfully Got All Counsellors Listing.',
+    DETAIL: 'Counsellor Details Fetched Successfully.',
+    RUNNING_SESSIONS: 'Running Sessions Fetched Successfully.',
+    RESCHEDULE_SESSION: 'Session Has Been Rescheduled Successfully.',
+    ALL_SESSIONS: 'Successfully Got All Sessions.',
+    RATING: 'Successfully Retrieved Counsellor Rating.',
+    LANGUAGE: 'Successfully Retrieved Language.',
+    ACTION_PLAN_OVERVIEW: 'Successfully Got Action Plan Overview.',
+    LEARNER_SESSION: 'Successfully Got All Sessions',
+    UPDATEDCOUNSELOR: 'Counselor Has Been Updated Successfully',
+    AVAILABLE_COUNSELORS: 'Successfully Got Available Counselors.',
+    PAYROLL: 'Successfully Got Counselors Payroll List.',
+    OCCUPANCY: 'Successfully Fetched Occupancy',
+    BILLREJECTED: 'Bill Rejected Successfully.',
+    PLANTYPE: 'Successfully Upgrade Counselor Tagging.',
+    INTERVIEWER_ACTIVE: 'Successfully Fetched Active Interviewer List',
+    INTERVIEWER: 'Successfully Fetched Interviewer Details',
+    INTERVIEWER_UPDATE: 'Successfully Updated Interviewer Details',
+    INTERVIEW_FEEDBACK: 'Successfully Updated Interview Feedback',
+    DOCUMENT_STATUS: 'Successfully Updated Document Status',
+    DOCUMENT_DATA: 'Successfully Fetched Document Details',
+    INTERVIEWTITLE: 'Successfully Fetched Interview Details',
+    PROFILE_TYPE: 'Successfully Fetched Profile Type Details',
+    PAYROLLUPDATE: 'Successfully Updated Payroll Data',
+    SCORETRACE: 'Successfully Fetched Score Details',
+    MASTERITEM: 'Successfully Fetched Item Details',
+    ENTITYPACKAGE: 'Successfully Updated Entity Package Details',
+    ENTITYPACKAGEDATA: 'Successfully Fetched Entity Package Details',
+    ACTIVEENTITY: 'Successfully Fetched Active Entities',
+    ENTITYUSER: 'Successfully Fetched Users For An Entity',
+    COMPLETED_SESSION: 'Successfully Fetched Completed Sessions Data',
+    SCHEDULED_SESSION: 'Successfully Fetched Scheduled Sessions Data',
+    MASTER_ITEM: 'Successfully Updated Master Item',
+    LEARNER: 'Successfully Fetched Learners Listing.',
+    ENTITYITEMSDATA: 'Successfully Fetched Items Assigned',
+    PACKAGEUPDATE: 'Successfully Updated Package Details',
+    ENTITY_ITEM_MAP: 'Successfully Mapped Items And Entities',
+    ENTITIES: 'Successfully Fetched All Entities Data',
+    BILL_GENERATED: 'Bill Generated Successfully.',
+    INTERVIEWER_DELETE: 'Successfully Deleted Interviewer Details'
+  },
+  BILL: {
+    UPDATED: 'Zoho Bill Updated Successfully'
+  },
+  SESSION: {
+    CANCEL: 'Session Cancelled Successfully',
+    SESSION_STATUS: 'Session Status Changed Successfully.',
+    ALLOW_COUNSELOR_CHANGE: 'Allow Counsellor Change For Associative User.',
+    LOG_LIST: 'Successfully Got Session Log Data',
+    SESSION_GROUPS: 'Successfully Fetched Session Groups.'
+  },
+  USER: {
+    USER_SUBSCRIPTIONS: 'Succesfully Got User Subscriptions',
+    USER_SESSIONS: 'Successfully Got User Sessions',
+    ALL_SESSIONS: 'Successfully Got All Sessions.',
+    ALL_LEARNERS: 'Successfully Got All Learners Count.',
+    USER_SESSIONS_COUNT: 'Successfully Got Session Count.',
+    USER_SAT_COUNT:
+      'Successfully Got Schdeuled, Availability, Target Hours Count.',
+    TASKS: 'Successfully Got All Tasks.',
+    UPDATE_TASKS: 'Successfully Updated Task.',
+    DELETE_TASK: 'Successfully Deleted Task.',
+    USER_FEEDBACK: 'Successfully Saved User Feedback.',
+    CHANGE_PROFILE_RIGHT: 'Successfully Updated.',
+    USER_READ_FEEDBACK: 'Successfully Get User Feedback.',
+    LEARNERS_SCHOOL: 'Sucessfully Created Learner School Details.',
+    UPDATE_LEARNERS_SCHOOL: 'Sucessfully Update Learner School Details.',
+    GET_PROFILE_RIGHT: 'Successfully Fetched Profile Right.',
+    SUB_AGENDA: 'Successfully Fetched Subagenda.',
+    SESSION_LEARNER_DETAILS: 'Successfully Fetched Learner Details.',
+    PASSWORD_CHANGE: 'Password Changed Successfully!',
+    DETAILS: 'Successfully Fetch User Detail'
+  },
+  COUNSELOR_SLOT_AVAILBILITY: {
+    CREATE: 'The Counsellor Slot Created Successfully.',
+    UPDATE: 'The Counsellor Slot Along With Overrides Saved Successfully.',
+    VIEWDATA: 'Successfully Got View Data',
+    SLOTFIRSTSUCCESS: 'Successfully Got Your First Slot. ',
+    CounselorAvailableSlots: 'Successfully Got Slots Data'
+  },
+  OVERRIDE_SLOT: {
+    CREATE: 'The Counsellor Override Slot Created Successfully.',
+    UPDATE: 'The Counsellor Override Slot Updated Successfully.',
+    VIEWDATA: 'Successfully Got View Data'
+  },
+  META: {
+    SAVE: 'Meta Details Saved Successfully.',
+    FETCH: 'Meta Details Fetched Successfully.'
+  },
+  INTERNAL_USERS_ROUTE: {
+    CREATE: 'The Route Created Successfully',
+    UPDATE: 'The Route Updated Successfully',
+    ROUTE_ROUTE_MAP: 'The Role Created Successfully',
+    ROLE: {
+      CREATE: 'Role Created Successfully'
+    }
+  },
+  BANNER_SECTION: {
+    CREATE: 'The Banner Section Created Successfully',
+    UPDATE: 'The Banner Section Updated Successfully',
+    DELETE: 'The Banner Section Deleted Successfully'
+  },
+  GLOBAL_MASTER_SERVICES: {
+    CREATE: 'The Service Record Created Successfully',
+    UPDATE: 'The Service Record Updated Successfully',
+    DELETE: 'The Service Record Deleted Successfully'
+  },
+  GLOBAL_MASTER_TESTIMONIAL: {
+    CREATE: 'The Testimonial Record Created Successfully',
+    UPDATE: 'The Testimonial Record Updated Successfully',
+    DELETE: 'The Testimonial Record Deleted Successfully'
+  },
+  BLOGS_VIDEOS_SERVICES: {
+    CREATE: 'The Blog Created Successfully',
+    UPDATE: 'The Blog Updated Successfully',
+    CREATE_BLOG: 'The Blog Created Successfully',
+    CREATE_VIDEO: 'The Video Created Successfully',
+    UPDATE_BLOG: 'The Blog Updated Successfully',
+    UPDATE_VIDEO: 'The Video Updated Successfully',
+    DELETE: 'The Blog Deleted Successfully'
+  },
+  FILE_TYPE: {
+    PNG: 'image/png',
+    JPG: 'image/jpg',
+    JPEG: 'image/jpeg',
+    GIF: 'image/gif',
+  }
+});

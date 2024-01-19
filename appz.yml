@@ -1,0 +1,247 @@
+app:
+  name: LYCADMIN
+  code: lyc-admin
+  notify: veative-alerts@ecloudcontrol.com
+build:
+  version: 0.4
+  env: DEV
+  build_file: none
+  args:
+    SONARQUBE: disabled
+    SONAR_LOGIN_TOKEN: $${build.token.sonar}
+    SONAR_HOST_URL: https://devclever-india-dev-sonarqube-8-2.0de945bd.lowtouch.cloud
+    SONAR_PROJECT_NAME: lyc-admin
+    SONAR_PROJECT_KEY: lyc-admin
+    SCAN_LANG: node
+    NODE_MODULES: typescript
+  output_files: output/*.zip
+  image_template: node-14.16
+
+deploy:
+  context: DevClever-India/DEV
+  replicas: 2
+  strategy: rolling
+  ready_seconds: 45
+  port:
+    - 8080
+
+properties:
+  NODE_ENV: 'development'
+  SERVER_PORT: 8080
+  #DB configuration
+  DB_HOST: 'lmcmaster-dev.cyurzu1luedq.ap-south-1.rds.amazonaws.com'
+  DB_USER: lyc_account
+  DB_PASSWORD:
+    vault: DB_PASSWORD
+  DB_NAME: lyc_account
+  DB_PORT: 3306
+  #LYC-LC DB configuration
+  LC_DB_HOST: 'lmcmaster-dev.cyurzu1luedq.ap-south-1.rds.amazonaws.com'
+  LC_DB_USER: lyc_lc
+  LC_DB_PASSWORD:
+    vault: LC_DB_PASSWORD
+  LC_DB_NAME: lyc_lc
+  LC_DB_PORT: 3306
+  #Diagnostic DB configuration
+  DT_DB_HOST: 'lmcmaster-dev.cyurzu1luedq.ap-south-1.rds.amazonaws.com'
+  DT_DB_USER: lyc_diagnostic
+  DT_DB_PASSWORD:
+    vault: DT_DB_PASSWORD
+  DT_DB_NAME: lyc_diagnostic
+  DT_DB_PORT: 3306
+  #Subscription DB configuration
+  SM_DB_HOST: 'lmcmaster-dev.cyurzu1luedq.ap-south-1.rds.amazonaws.com'
+  SM_DB_USER: lyc_subscription
+  SM_DB_PASSWORD:
+    vault: SM_DB_PASSWORD
+  SM_DB_NAME: lyc_subscription
+  SM_DB_PORT: 3306
+  #Career DB configuration
+  CR_DB_HOST: 'lmcmaster-dev.cyurzu1luedq.ap-south-1.rds.amazonaws.com'
+  CR_DB_USER: lyc_career
+  CR_DB_PASSWORD:
+    vault: CR_DB_PASSWORD
+  CR_DB_NAME: lyc_career
+  CR_DB_PORT: 3306
+
+  #LearningHub DB configuration
+  LH_DB_HOST: 'lmcmaster-dev.cyurzu1luedq.ap-south-1.rds.amazonaws.com'
+  LH_DB_USER: lyc_learninghub
+  LH_DB_PASSWORD:
+    vault: LH_DB_PASSWORD
+  LH_DB_NAME: lyc_learninghub
+  LH_DB_PORT: 3306
+  #Log sql query
+  LOG_SQL_QUERY: 1
+  #WebAdmin DB configuration
+  WEB_ADMIN_DB_HOST: 'lmcmaster-dev.cyurzu1luedq.ap-south-1.rds.amazonaws.com'
+  WEB_ADMIN_DB_USER: lyc_webadmin
+  WEB_ADMIN_DB_PASSWORD:
+    vault: WEB_ADMIN_DB_PASSWORD
+  WEB_ADMIN_DB_NAME: lyc_webadmin
+  WEB_ADMIN_DB_PORT:
+    3306
+
+    # SA configuration
+  SA_DB_HOST: 'lmcmaster-dev.cyurzu1luedq.ap-south-1.rds.amazonaws.com'
+  SA_DB_USER: lyc_studyabroad
+  SA_DB_PASSWORD:
+    vault: SA_DB_PASSWORD
+  SA_DB_NAME: lyc_studyabroad
+  SA_DB_PORT: 3306
+
+  #Per day session hrs
+  PER_DAY_SESSION_HRS: 5
+  #AWS configuration
+  AWS_REGION: ap-south-1
+  AWS_CLOUDFRONT_DOMAIN: 'https://static.launchmycareer.com'
+  #DYNAMODB configuration
+  DYNAMODB_ACCESS_KEY:
+    vault: DYNAMODB_KEY
+  DYNAMODB_SECRET_KEY:
+    vault: DYNAMODB_SECRET_KEY
+  #SES configuration
+  SES_ACCESS_KEY:
+    vault: SES_ACCESS_KEY
+  SES_SECRET_KEY:
+    vault: SES_SECRET_KEY
+  SES_FROM_EMAIL: 'lyctech@veative.com'
+  #S3 configuration
+  S3_ACCESS_KEY:
+    'AKIA3S4AX4QAXWRYCC7N'
+    #vault: S3_ACCESS_KEY
+  S3_SECRET_KEY:
+    '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'
+    #vault: S3_SECRET_KEY
+  S3_STATIC_BUCKET: 'lyc-staticcontenet'
+  S3_STATIC_BUCKET_URL: 'https://lyc-staticcontenet.s3.ap-south-1.amazonaws.com/'
+  SESSION_S3_ACCESS_KEY:
+    vault: SESSION_S3_ACCESS_KEY
+  SESSION_S3_SECRET_KEY:
+    vault: SESSION_S3_SECRET_KEY
+  SESSION_S3_BUCKET: 'lyc-sessionvideo'
+  ADMIN_PROFILE: 'adminprofile'
+  S3_STATIC_BUCKET_ALLOW_ACL_SESSION_VIDEO: true
+  #Membership card number
+  MEMBERSHIP_CARD_START: '813125'
+  MEMBERSHIP_CARD_LOT: 'LMC'
+  #COGNITO configuration
+  COGNITO_ACCESS_KEY:
+    vault: COGNITO_KEY
+  COGNITO_SECRET_KEY:
+    vault: COGNITO_SECRET_KEY
+  COGNITO_INTERNAL_USER_POOL_ID: 'ap-south-1_08cpdw82l'
+  COGNITO_APP_CLIENT_ID: '4dmpqukkkbhcokgg8k1t56ft4d'
+  #CSP Allowed Domains add mulitple with ||
+  CSP_DOMAIN_ALLOW: 'https://*.launchmycareer.com||https://devclever-india-dev-lyc-web-admin-0-5.0de945bd.lowtouch.cloud||https://devclever-india-dev-lyc-web-admin-0-6.0de945bd.lowtouch.cloud||https://devclever-india-dev-lyc-web-admin-0-4.0de945bd.lowtouch.cloud||^localhost$||http://localhost:3000'
+  #Knowlarity Configuration
+  KNOWLARITY_API_END_POINT: https://vapi.knowlarity.com
+  KNOWLARITY_EMAIL: tech@veative.com
+  KNOWLARITY_PASSWORD: rgTXWROz
+  KNOWLARITY_PROJECT_ID: 524
+  KNOWLARITY_MOCKSESSION_PROJECT_ID: 524
+  KNOWLARITY_INTERVIEW_PROJECT_ID: 524
+  KNOWLARITY_MINNUM_MEETING_COMPLETED_TIME: 30
+  KNOWLARITY_MAXIMUM_MEETING_COMPLETED_TIME: 60
+  KNOWLARITY_API_MEETING_LINK: https://meetings.knowlarity.com/room/
+  SESSION_JOIN_BEFORE: 15
+  #IMOCHA configuration
+  IMOCHA_API_END: 'https://apiv3.imocha.io'
+  IMOCHA_EMAIL: 'santosh@veative.com'
+  IMOCHA_PASSWORD: '*7XvDb&h'
+  IMOCHA_API_KEY: 'burSiozubqiITlDFaCqGEpkoUfuocK'
+  IMOCHA_REDIRECT_URL: 'https://devclever-india-dev-lyc-web-0-5.0de945bd.lowtouch.cloud/auth/account-activation'
+  IMOCHA_CALLBACK_URL: 'https://devclever-india-dev-lyc-lc-0-4.0de945bd.lowtouch.cloud/bypass/test-callback-notification'
+  INITIAL_SCREENING_TEST_PERCENTAGE: 60
+  ASSESSMENT_TEST_PERCENTAGE: 60
+  TRANING_PASS_PERCENTAGE: 60
+  #ZOHO configurations
+  ZOHO_URL_AUTH: https://accounts.zoho.com
+  ZOHO_URL_API: https://books.zoho.com
+  ZOHO_REFRESH_TOKEN: 1000.89eeab78e0f792ba58ebfab2238d9a6e.f0adc18cda16b3a202bc908dfe419d1e
+  ZOHO_CLIENT_ID: 1000.NEX1CXQQQONMXXFINZ7CNKBLMKET3A
+  ZOHO_CLIENT_SECRET: 5a7dd0b99d7f151a0f2f2da62d7ff4c1853b11c47d
+  ZOHO_GRANT_TYPE: refresh_token
+  ZOHO_ORGANIZATION_ID: 763183196
+  ZOHO_PURSUIT_ITEM_ID: 2902438000001669033
+  ZOHO_PATHWAY_ITEM_ID: 2902438000001673011
+  ZOHO_IGNITOR_ITEM_ID: 2902438000001682010
+  ZOHO_CREATE_ITEMS:
+    vault: ZOHO_CREATE_ITEMS
+  ZOHO_CREATE_ITEMS_TAXINTER_TAX_ID: 2902438000000598113
+  ZOHO_CREATE_ITEMS_TAXINTRA_TAX_ID: 2902438000000598125
+  # for prod 2
+  ZOHO_INDEX: 1
+  ZOHO_LEARNING_HUB_CHECKOUT_PAYMENT_FORM_ID: 2902438000000507005
+  #Bcc Email Id
+  BCC_EMAIL: 'Session.notifications@launchmycareer.com'
+  #DDB table prefix
+  DYNAMODB_TABLE_PRIFIX: 'DEV_'
+  # Admin email
+  TEST_ADMIN_EMAILS: 'anant.sharma@veative.com'
+  ADMIN_EMAILS: 'nivika.malhotra@veative.com,sunil.rawat@veative.com,mayank.upadhyay@veative.com,rishi.awasthi@veative.com'
+  #SNS configuration
+  SNS_ACCESS_KEY:
+    vault: SNS_ACCESS_KEY
+  SNS_SECRET_KEY:
+    vault: SNS_SECRET_KEY
+  #Country code for SMS
+  #Logger
+  LOGGER: 'true'
+  #logo URL
+  CLOUDFRONT_URL: 'https://static.launchmycareer.com/'
+  COUNTRY_CODE: '+91'
+  #Timezone
+  TIMEZONE: 'Asia/Kolkata'
+  #BASE DOMAIN
+  BASE_DOMAIN: 'https://devclever-india-qa-lyc-web-0-4.0de945bd.lowtouch.cloud'
+  DB_TABLES_CHANGES_: ''
+  GSUITE_CALENDAR_CREDENTIALS:
+    vault: GSUITE_CALENDAR_CREDENTIALS
+  GSUITE_INTERVIEW_SUMMARY: 'LMC Interview Session'
+  GSUITE_MOCKSESSION_SUMMARY: 'LMC Mock Session'
+  GSUITE_LOCATION: 'B-121, Sector 67 Rd, Block B, Sector 67, Noida, Uttar Pradesh 201301, India'
+  #SHIP ROCKET
+  SHIP_ROCKET_API: 'https://apiv2.shiprocket.in'
+  SHIP_ROCKET_EMAIL: 'rahulvv88@gmail.com'
+  SHIP_ROCKET_PASSWORD: 'Anyonecan@123'
+  SHIP_ROCKET_TOKEN: ''
+  #SALES APP NEED TO DEPOSIT CASH DAY LIMIT IN DAYS
+  CASH_DEPOSIT_WITHIN_DAY: 3
+  #RAZORPAY CONFIG TESTING
+  RAZORPAY_API_URL: https://api.razorpay.com
+  RAZORPAY_CLIENT_ID: rzp_test_G9gc6iLJQUhtoR
+  RAZORPAY_CLIENT_SECRET: Tjuj268vcwtYkRc6UQOw8RBY
+  RAZORPAY_PAYMENT_WEBHOOK_SECRET: 1111
+
+  # ! ZOHO BOOK TESTING CONFIG
+  ZOHO_BOOK_CSMP_ITEM_ID: 2902438000001683001
+  ZOHO_BOOK_PERSONIFY_ITEM_ID: 2902438000001682019
+  ZOHO_BOOK_EMPOWER_PLAN_ID: 2902438000001684001
+  ZOHO_BOOK_ENDEAVOUR_PLAN_ID: 2902438000001683010
+  ZOHO_BOOK_PRODUCT1_ITEM: 2902438000001676003
+  ZOHO_BOOK_PRODUCT2_ITEM: 2902438000001677001
+  ZOHO_BOOK_PRODUCT3_ITEM: 2902438000001678001
+  ZOHO_BOOK_PRODUCT4_ITEM: 2902438000001673002
+  ZOHO_BOOK_PRODUCT5_ITEM: 2902438000001675002
+  ZOHO_BOOK_PRODUCT6_ITEM: 2902438000001679001
+  ZOHO_BOOK_PRODUCT7_ITEM: 2902438000001676012
+  ZOHO_BOOK_PRODUCT8_ITEM: 2902438000001678010
+  ZOHO_BOOK_PRODUCT9_ITEM: 2902438000001680001
+  ZOHO_BOOK_PRODUCT10_ITEM: 2902438000001675011
+  ZOHO_BOOK_PRODUCT11_ITEM: 2902438000001678019
+  ZOHO_BOOK_PRODUCT12_ITEM: 2902438000001671002
+  ZOHO_BOOK_PRODUCT13_ITEM: 2902438000001681001
+  ZOHO_BOOK_PRODUCT14_ITEM: 2902438000001669015
+  ZOHO_BOOK_PRODUCT15_ITEM: 2902438000001669024
+  ZOHO_BOOK_PRODUCT16_ITEM: 2902438000001678028
+  ZOHO_BOOK_PRODUCT17_ITEM: 2902438000001682001
+  # CLOUDFRONT
+  PRIVATE_KEY_PATH: './src/services/v2/s3/cloudfront-test-key.pem'
+  CLOUDFRONT_PUBLIC_KEY_ID: 'KT16PMDT0VEAQ'
+  CLOUDFRONT_PRIVATE_KEY_STRING: 'MIIEowIBAAKCAQEAq822ePUQCSVVHGL9m0r4GsfONjKENfqeM/H9S0drsmcrWLNzMc0PrI9ugURTdF+8Y7Wntv3ZYF0+FD6OlGdrq8c0fCWfi395aab61FlE0Irkc3mJHNQTgcAmOYEbGBZ5qGXsGKltzrp13BrzxCncBKq5xag5i6PXHcTikPoX5t4zwWJIupbg0DGsghR94zWgro0Rh1BhgatwPRQ7GnRQvh82W9D8I27UkSPKFErRdZyWWNxB/WTzIeqwi9b9rIIWRW9H5PoAhlTqZSY6w2zPSCAMd7Na1y/eK4j13tpmGrPT0sxJeAshQeelrB6E8ck/psXIxp1Eq1A0/pB7e1Ir3QIDAQABAoIBABnwgld68MPgvhv+GjpjNFieyFTIhcu8njxLkinWi70w9It89KyVQIOWWGHuFgehGMmZOMxZQYPaMDBQTai8gLY76oHAEHm4cnVwP7jmDYzLG7kPpZMTtipF/7947cVSR2YUlXQXyLuIzZjA/QMmKtENkeT1BFNAFo+pFWg8SnWR4bqpeg1O9dz7YIYv6OMfM5ZgNZl40NjDzd0x74qCMaseui277gcNbLyTr9RG6aU7vc0T8a8MLTZGN7kyP4cgUJ1hoHKGRU3pNzSjrkKuF5Yz7g7++z32iBXm6YOJLpKv4gNObRlrY4z4nTyC5/Bk1cHIXznIkz4wdgAx9z4lsCECgYEA1M0BPaPJKapmPFJwTVZDLCS5+KcpQu7Wz3VhKp+Fge0pwvlBGsUtzDz62bdqqu7RfX/5yczVVcDtg3qe/208IWY6SkPPtvjVEvQ6JXsojSNdUDrUR02ZbIbFJHUFg41XbrP5vbxo9p6kK9buhIXUqaL8XQYyKO0IFshGpWhaAsUCgYEAzq4h2KUY63zLehSRgiYhf1Z5gRhIls9aeMGz0kyT4+tdDxg0P8Y4cteg8m73b95vvk0UsUnkmK82tvPUSnsyMoGLnQv4fSLXzVrbS4abspmcDOhSYU8fo9lp7dxSTtQVDHquayN+2j7GGLUTvPdvclJhrOR2dyDIYn8KVfsKNjkCgYB56OwiDPfMl+M0AaJ2m8mlu3CTI+i+gKeteDhvO643jc/T9Am5NWcUT4cCPVKtlF2NgUhvtJovI3SuUwxNlp3RIIiaTRjtYMZosmOxX0oO+UiXEuzT4H/Zrae5SBUdlVaWhCK58PtM9ftlZh+E6kq32DitbkREL+7nZlsanZqbZQKBgARSC48V1HGHyFEjAO+xkF2zFxMlyM6uQvvnQLUSuLy4/NcF8IGsyR1NeKXYv/9srPVTcy1JmCfA8endKwDrll8L6jk8ONOU2OIIFjF7/OE86NA0QxSZrNWmA9rfEjFnqZD7N44xzcMOMOHvVxxKJ+BB7JzKoddXrhixAyxM9SexAoGBAICsBX5QDIb956GokDwWCFLhHb64UujLFMPX4glOpt1//RC8gTyBPVoZXAgedJc7VpJ+nhQY4TjnWXVQMOHGuPGYMtjUHA8cIWblWudR4aiAMJhhE9ORuJOSWjOGgJ/Ikg9BAf4Qq2cY+Fec29HH5A3VxooYWX0o7G1pE6Fzse8y'
+  AWS_FOLDER_NAME: '/depositslip/'
+  # LOGIN USER
+  LOGIN_API_URL: 'https://devapi.launchmycareer.com/account/admin-create-user'
+
+  revision: 31

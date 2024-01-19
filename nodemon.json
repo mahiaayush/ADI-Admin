@@ -1,0 +1,25 @@
+{
+  "ignore": [
+    ".eslintrc.json",
+    ".git",
+    ".husky",
+    ".vscode",
+    "build",
+    "node_modules",
+    ".gitignore",
+    ".prettierrc",
+    "appz.yml",
+    "nodemon.json",
+    "package.json",
+    "package-lock.json",
+    "README.md",
+    "tsconfig.json",
+    "zohoToken.json"
+  ],
+  "watch": ["index.ts", "src"],
+  "ext": "js,ts",
+  "exec": "./node_modules/.bin/ts-node ./src/index.ts",
+  "execMap": {
+    "ts": "ts-node"
+  }
+}

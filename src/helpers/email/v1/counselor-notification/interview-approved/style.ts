@@ -1,0 +1,3 @@
+export const style = () => {
+  return ` <style type="text/css"> body { padding-top: 0 !important; padding-bottom: 0 !important; padding-top: 0 !important; padding-bottom: 0 !important; margin:0 !important; width: 100% !important; -webkit-text-size-adjust: 100% !important; -ms-text-size-adjust: 100% !important; -webkit-font-smoothing: antialiased !important; font-family: Arial, Helvetica, sans-serif; font-size: 18px; } @media (max-width:640px) { body { font-size: 18px; line-height: 22px; } p { font-size: 18px; line-height: 22px; } table{max-width: 100%; width: 100%;} } *{ margin: 0px; padding: 0px;} </style>`;
+};
